@@ -36,7 +36,7 @@ class TaskManager:
                 return
         print(f"Task with ID {id} not found.")
 
-    def delete_task(self):
+    def delete_task(self, id):
         for task in self._tasks:
             if task.id == id:
                 self._tasks.remove(task)
