@@ -48,7 +48,7 @@ def main():
                     print("Opción no válida. Por favor, seleccione una opción del 1 al 5.") 
 
         except ValueError:
-            print("Entrada no válida. Por favor, ingrese un número del 1 al 5.")
+            print("Entrada no válida. Por favor, Seleccione otra opción.")
 
 if __name__ == "__main__":
     main()
