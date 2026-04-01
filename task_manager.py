@@ -63,19 +63,11 @@ class TaskManager:
                 if self._tasks:
                     self._next_id = self._tasks[-1].id + 1
                 else:
-                    self._next_id = 1
-
-
-
-
-                
+                    self._next_id = 1                
                 
         except FileNotFoundError:
                 self._tasks = []
-                
             
-
-
     def save_tasks(self):
         with open(self.FILENAME, "w") as file:
             json.dump([{"id": task.id, "description": task.description, "completed": task.completed} for task in self._tasks], file, indent=4)

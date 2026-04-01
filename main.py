@@ -1,15 +1,17 @@
-from multiprocessing import managers
+from re import sub
 
 from task_manager import TaskManager
+from ai_service import create_simple_tasks
 
 
 def print_menu():
     print("\n ----gestor de tareas")   
     print("1. Agregar tarea")
-    print("2. Listar tareas")
-    print("3. Marcar tarea como completada")
-    print("4. Eliminar tarea")
-    print("5. Salir")
+    print("2. Agregar tarea compleja")
+    print("3. Listar tareas")
+    print("4. Marcar tarea como completada")
+    print("5. Eliminar tarea")
+    print("6. Salir")
 
 
 def main():
@@ -28,19 +30,29 @@ def main():
                 case 1:
                     description = input("Ingrese la descripción de la tarea: ")
                     manager.add_task(description)
-                    
                 case 2:
-                    manager.list_task()
+                    description = input("Ingrese la descripción de la tarea compleja: ")
+                    subtasks = create_simple_tasks(description)
+                    for subtask in subtasks:
+                        if not subtask.startswith("Error:"):
+                            manager.add_task(subtask)
+                        else:
+                            print(subtask)
+                            break
 
                 case 3:
+                    manager.list_task()
+                        
+
+                case 4:
                     id = int(input("Ingrese el ID de la tarea a marcar como completada: "))
                     manager.complete_tasks(id)
 
-                case 4:
+                case 5:
                     id = int(input("Ingrese el ID de la tarea a eliminar: "))
                     manager.delete_task(id) 
 
-                case 5:
+                case 6:
                     print("Saliendo del programa...")
                     break
                 
