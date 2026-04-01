@@ -224,7 +224,6 @@ Dependencias registradas en `requerements.txt`:
 
 ### Mejoras de código
 
-- Renombrar `requerements.txt` a `requirements.txt`.
 - Unificar el idioma de todos los mensajes.
 - Mejorar el método `__str__` para mostrar el estado.
 - Renombrar métodos como `list_task` y `complete_tasks` para que sean más consistentes.
